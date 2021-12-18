@@ -4,9 +4,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:farfromhome/ui/page_house_detail.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
-import 'package:multi_image_picker/multi_image_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart';
-import 'package:multi_image_picker/src/asset.dart';
+import 'package:multi_image_picker2/multi_image_picker2.dart';
 
 var _status=true;
 var _uploadStatus = false;
@@ -45,7 +44,7 @@ class ChoiceCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final TextStyle textStyle = Theme.of(context).textTheme.display1;
+    final TextStyle textStyle = Theme.of(context).textTheme.headline1;
     return Card(
       color: Colors.white,
       child: Center(
@@ -105,7 +104,7 @@ class _MultiImageState extends State<MultiImage> {
       File file=new File(t);
       filePath = '${DateTime.now()}.png';
       FirebaseStorage storage = FirebaseStorage.instance;
-      Reference ref = storage.refFromURL('gs://farfromhome-2019.appspot.com/').child(filePath);
+      Reference ref = storage.refFromURL('gs://house-rant.appspot.com/').child(filePath);
       UploadTask task = ref.putFile(file);
       TaskSnapshot storageTaskSnapshot = await task.whenComplete(() => null);
       String url = await storageTaskSnapshot.ref.getDownloadURL();
@@ -213,7 +212,7 @@ class _MultiImageState extends State<MultiImage> {
               ),
            ] : null,
          ),
-        body: _uploadStatus ? Center(child:new CircularProgressIndicator()) : new Column( 
+        body: _uploadStatus ? Center(child:new CircularProgressIndicator()) : new Column(
           children: <Widget>[
             Expanded(
               child: buildGridView(),

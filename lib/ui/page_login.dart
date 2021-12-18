@@ -169,7 +169,7 @@ class _LoginPageState extends State<LoginPage> {
                           height: 0,
                         ),
                         Text(
-                          "Far From Home",
+                          "BD House Rant",
                           style: TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.w700,
@@ -304,46 +304,46 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
             SizedBox(
-              height: size.hp(1),
+              height: size.hp(1.5),
             ),
-            Center(
-              child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: size.wp(7)),
-                  child: Container(
-                    width: size.wp(90),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.all(Radius.circular(100)),
-                        color: Color(0xffffffff)),
-                    child: RaisedButton(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: new BorderRadius.circular(50.0),
-                      ),
-                      padding: new EdgeInsets.symmetric(horizontal: size.hp(7.5),vertical: size.wp(2.5)),
-                      color: Colors.white,
-                      child: Row(
-                        children: <Widget>[
-                          Image.asset(
-                            'assets/icngmail.png',
-                            width: size.wp(8),
-                          ),
-                          SizedBox(
-                            width: size.wp(2),
-                          ),
-                          Text(
-                            'Sign in with Google',
-                            style: TextStyle(
-                              fontSize: size.hp(2)
-                            ),
-                          ),
-                        ],
-                      ),
-                      onPressed: () {},
-                    ),
-                  )),
-            ),
-            SizedBox(
-              height: size.hp(2.6),
-            ),
+            // Center(
+            //   child: Padding(
+            //       padding: EdgeInsets.symmetric(horizontal: size.wp(7)),
+            //       child: Container(
+            //         width: size.wp(90),
+            //         decoration: BoxDecoration(
+            //             borderRadius: BorderRadius.all(Radius.circular(100)),
+            //             color: Color(0xffffffff)),
+            //         child: RaisedButton(
+            //           shape: RoundedRectangleBorder(
+            //             borderRadius: new BorderRadius.circular(50.0),
+            //           ),
+            //           padding: new EdgeInsets.symmetric(horizontal: size.hp(7.5),vertical: size.wp(2.5)),
+            //           color: Colors.white,
+            //           child: Row(
+            //             children: <Widget>[
+            //               Image.asset(
+            //                 'assets/icngmail.png',
+            //                 width: size.wp(8),
+            //               ),
+            //               SizedBox(
+            //                 width: size.wp(2),
+            //               ),
+            //               Text(
+            //                 'Sign in with Google',
+            //                 style: TextStyle(
+            //                   fontSize: size.hp(2)
+            //                 ),
+            //               ),
+            //             ],
+            //           ),
+            //           onPressed: () {},
+            //         ),
+            //       )),
+            // ),
+            // SizedBox(
+            //   height: size.hp(2.6),
+            // ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[

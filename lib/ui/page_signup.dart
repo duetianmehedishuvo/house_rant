@@ -141,7 +141,7 @@ class _SignUpPageState extends State<SignUpPage> {
                             child:Container(
                               padding: EdgeInsets.only(top: size.getWidthPx(10)),
                               child: Text(
-                                "Far From Home",
+                                "BD House Rant",
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontWeight: FontWeight.w700,
@@ -244,7 +244,7 @@ class _SignUpPageState extends State<SignUpPage> {
                     cursorColor: Colors.blue[900],
                     decoration: InputDecoration(
                         hintText: "Mobile Number",
-                        prefixText: "+91",
+                        prefixText: "+88",
                         prefixIcon: Material(
                           elevation: 0,
                           borderRadius: BorderRadius.all(Radius.circular(30)),

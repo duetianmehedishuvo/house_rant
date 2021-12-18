@@ -6,13 +6,15 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'dart:io';
 import 'dart:core';
 import 'dart:async';
-import 'package:multi_image_picker/multi_image_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart';
-import 'package:multi_image_picker/src/asset.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:multi_image_picker2/multi_image_picker2.dart';
 
 class AddHouse extends StatefulWidget {
   var docRef;
+
   AddHouse(this.docRef);
+
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
@@ -26,6 +28,7 @@ class AddHouseState extends State<AddHouse> {
   AddHouseState(val) {
     ownerRef = val;
   }
+
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -93,9 +96,8 @@ class _WallState extends State<Wall> {
       print('_Address ${_address}');
       print('_ pincode ${_pincod}');
       print('_ HouseNO ${_hono}');
-      //createRecord();
-      Navigator.push(
-          context, MaterialPageRoute(builder: (context) => Secondpage()));
+      //createRecord(context);
+      Navigator.push(context, MaterialPageRoute(builder: (context) => Secondpage()));
       return true;
     } else {
       return false;
@@ -113,10 +115,8 @@ class _WallState extends State<Wall> {
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
           child: Card(
-            margin: EdgeInsets.only(
-                bottom: 10.0, left: 20.0, right: 20.0, top: 15.0),
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10.0)),
+            margin: EdgeInsets.only(bottom: 10.0, left: 20.0, right: 20.0, top: 15.0),
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
             child: Container(
               margin: EdgeInsets.all(15.0),
               color: Colors.white,
@@ -131,8 +131,7 @@ class _WallState extends State<Wall> {
                         new Align(
                           alignment: Alignment.topLeft,
                           child: Container(
-                            padding:
-                                const EdgeInsets.symmetric(horizontal: 10.0),
+                            padding: const EdgeInsets.symmetric(horizontal: 10.0),
                             child: Icon(
                               Icons.my_location,
                               size: 30.0,
@@ -180,16 +179,14 @@ class _WallState extends State<Wall> {
                         }
                       },
                       autofocus: true,
-                      validator: (value) =>
-                          value.isEmpty ? 'Locality is required' : null,
+                      validator: (value) => value.isEmpty ? 'Locality is required' : null,
                     ),
                     TextFormField(
                       decoration: InputDecoration(labelText: 'City'),
                       onSaved: (String value) {
                         _city = value;
                       },
-                      validator: (value) =>
-                          value.isEmpty ? 'City is required' : null,
+                      validator: (value) => value.isEmpty ? 'City is required' : null,
                     ),
                     TextFormField(
                       decoration: InputDecoration(labelText: 'State'),
@@ -200,8 +197,7 @@ class _WallState extends State<Wall> {
                       onSaved: (String value) {
                         _state = value;
                       },
-                      validator: (value) =>
-                          value.isEmpty ? 'Satate is required' : null,
+                      validator: (value) => value.isEmpty ? 'Satate is required' : null,
                     ),
                     TextFormField(
                       decoration: InputDecoration(labelText: 'House No.'),
@@ -212,22 +208,19 @@ class _WallState extends State<Wall> {
                       onSaved: (String value) {
                         _hono = value;
                       },
-                      validator: (value) =>
-                          value.isEmpty ? 'Please Enter House Number' : null,
+                      validator: (value) => value.isEmpty ? 'Please Enter House Number' : null,
                     ),
                     TextFormField(
                       maxLines: 2,
                       decoration: new InputDecoration(
                         labelText: "Society Name",
                         fillColor: Colors.white,
-                        contentPadding: const EdgeInsets.only(
-                            top: 20.0, bottom: 20.0, left: 0.0, right: 0.0),
+                        contentPadding: const EdgeInsets.only(top: 20.0, bottom: 20.0, left: 0.0, right: 0.0),
                       ),
                       onSaved: (String value) {
                         _address = value;
                       },
-                      validator: (value) =>
-                          value.isEmpty ? 'Society Name  is required' : null,
+                      validator: (value) => value.isEmpty ? 'Society Name  is required' : null,
                       style: new TextStyle(
                         fontFamily: "Poppins",
                       ),
@@ -242,8 +235,7 @@ class _WallState extends State<Wall> {
                         _pincod = value;
                       },
                       keyboardType: TextInputType.number,
-                      validator: (value) =>
-                          value.isEmpty ? 'Pin Code is required' : null,
+                      validator: (value) => value.isEmpty ? 'Pin Code is required' : null,
                     ),
                     Align(
                         alignment: Alignment.bottomRight,
@@ -257,8 +249,7 @@ class _WallState extends State<Wall> {
                             ),
                             elevation: 4.0,
                             color: Colors.blue[700],
-                            shape: RoundedRectangleBorder(
-                                borderRadius: new BorderRadius.circular(30.0)),
+                            shape: RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
                           ),
                         )),
                   ],
@@ -287,9 +278,7 @@ class _MyFlutterAppState extends State<Secondpage> {
         appBar: AppBar(
           title: Text("Post Free House Ad"),
           backgroundColor: Colors.blue[700],
-          leading: IconButton(
-              icon: Icon(Icons.arrow_back),
-              onPressed: () => Navigator.pop(context, false)),
+          leading: IconButton(icon: Icon(Icons.arrow_back), onPressed: () => Navigator.pop(context, false)),
         ),
         body: Inte(),
       ),
@@ -306,6 +295,7 @@ class Inte extends StatefulWidget {
 
 class _InteState extends State<Inte> {
   final _formKey1 = GlobalKey<FormState>();
+
   // String _buildup;
   // String _monthly;
   // String _deposit;
@@ -319,8 +309,7 @@ class _InteState extends State<Inte> {
       print('_Deposite ${_deposit}');
       // print('_Address ${_address}');
       print('_Deposite ${_filter}');
-      Navigator.push(
-          context, MaterialPageRoute(builder: (context) => Thirdpage()));
+      Navigator.push(context, MaterialPageRoute(builder: (context) => Thirdpage()));
 
       return true;
     } else {
@@ -338,18 +327,15 @@ class _InteState extends State<Inte> {
           height: MediaQuery.of(context).size.height,
           color: Colors.grey[300],
           child: Card(
-            margin: EdgeInsets.only(
-                bottom: 10.0, left: 20.0, right: 20.0, top: 15.0),
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10.0)),
+            margin: EdgeInsets.only(bottom: 10.0, left: 20.0, right: 20.0, top: 15.0),
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
             child: Container(
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height,
               margin: EdgeInsets.only(top: 15.0, bottom: 15.0),
               color: Colors.white,
               child: SingleChildScrollView(
-                padding: EdgeInsets.only(
-                    bottom: 20.0, left: 20.0, right: 20.0, top: 20.0),
+                padding: EdgeInsets.only(bottom: 20.0, left: 20.0, right: 20.0, top: 20.0),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
@@ -552,15 +538,12 @@ class _InteState extends State<Inte> {
                                     child: TextFormField(
                                       decoration: new InputDecoration(
                                         hintText: 'Build Up Area in SQ.Ft',
-                                        contentPadding:
-                                            const EdgeInsets.all(10.0),
+                                        contentPadding: const EdgeInsets.all(10.0),
                                       ),
                                       onSaved: (String value) {
                                         _buildup = value;
                                       },
-                                      validator: (value) => value.isEmpty
-                                          ? 'Please enter Build Up Area'
-                                          : null,
+                                      validator: (value) => value.isEmpty ? 'Please enter Build Up Area' : null,
                                       keyboardType: TextInputType.number,
                                       style: new TextStyle(
                                         fontFamily: "Poppins",
@@ -631,15 +614,12 @@ class _InteState extends State<Inte> {
                                       decoration: new InputDecoration(
                                         hintText: 'Monthly Rent in INR',
                                         fillColor: Colors.white,
-                                        contentPadding:
-                                            const EdgeInsets.all(10.0),
+                                        contentPadding: const EdgeInsets.all(10.0),
                                       ),
                                       onSaved: (String value) {
                                         _monthly = value;
                                       },
-                                      validator: (value) => value.isEmpty
-                                          ? 'Monthly Rent is required'
-                                          : null,
+                                      validator: (value) => value.isEmpty ? 'Monthly Rent is required' : null,
                                       keyboardType: TextInputType.number,
                                       style: new TextStyle(
                                         fontFamily: "Poppins",
@@ -709,15 +689,12 @@ class _InteState extends State<Inte> {
                                       decoration: new InputDecoration(
                                         hintText: 'Deposit Amount in INR',
                                         fillColor: Colors.white,
-                                        contentPadding:
-                                            const EdgeInsets.all(10.0),
+                                        contentPadding: const EdgeInsets.all(10.0),
                                       ),
                                       onSaved: (String value) {
                                         _deposit = value;
                                       },
-                                      validator: (value) => value.isEmpty
-                                          ? 'Deposit Amount is required'
-                                          : null,
+                                      validator: (value) => value.isEmpty ? 'Deposit Amount is required' : null,
                                       keyboardType: TextInputType.number,
                                       style: new TextStyle(
                                         fontFamily: "Poppins",
@@ -753,8 +730,7 @@ class _InteState extends State<Inte> {
                             ),
                             elevation: 4.0,
                             color: Colors.blue[700],
-                            shape: RoundedRectangleBorder(
-                                borderRadius: new BorderRadius.circular(30.0)),
+                            shape: RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
                           ),
                         )),
                   ],
@@ -901,6 +877,7 @@ class _MyPropertyOptionsState extends State<MyPropertyOptions> {
 
 class ActorFilterEntry {
   const ActorFilterEntry(this.name, this.initials);
+
   final String name;
   final String initials;
 }
@@ -1072,9 +1049,7 @@ class _MyFlutterApp extends State<Thirdpage> {
         appBar: AppBar(
           title: Text("Post Free House Ad"),
           backgroundColor: Colors.blue[700],
-          leading: IconButton(
-              icon: Icon(Icons.arrow_back),
-              onPressed: () => Navigator.pop(context, false)),
+          leading: IconButton(icon: Icon(Icons.arrow_back), onPressed: () => Navigator.pop(context, false)),
         ),
         body: Finalfm(),
       ),
@@ -1091,6 +1066,7 @@ class Finalfm extends StatefulWidget {
 
 class _Finalfmstate extends State<Finalfm> {
   final _formKey2 = GlobalKey<FormState>();
+
   // String _detail;
   // String _beds;
   // String _bath;
@@ -1099,8 +1075,7 @@ class _Finalfmstate extends State<Finalfm> {
     final form = _formKey2.currentState;
     if (form.validate()) {
       form.save();
-      Navigator.push(
-          context, MaterialPageRoute(builder: (context) => AddImages()));
+      Navigator.push(context, MaterialPageRoute(builder: (context) => AddImages()));
       //createRecord();
       return true;
     } else {
@@ -1117,8 +1092,7 @@ class _Finalfmstate extends State<Finalfm> {
           color: Colors.grey[100],
           child: Card(
             margin: EdgeInsets.all(20.0),
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(20.0)),
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
             child: Container(
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height,
@@ -1236,15 +1210,12 @@ class _Finalfmstate extends State<Finalfm> {
                                         //labelText: 'No. of Bedrooms',
                                         hintText: 'Enter No of Bedrooms',
                                         fillColor: Colors.white,
-                                        contentPadding:
-                                            const EdgeInsets.all(15),
+                                        contentPadding: const EdgeInsets.all(15),
                                       ),
                                       onSaved: (String value) {
                                         _beds = value;
                                       },
-                                      validator: (value) => value.isEmpty
-                                          ? 'No. of Bedrooms is required'
-                                          : null,
+                                      validator: (value) => value.isEmpty ? 'No. of Bedrooms is required' : null,
                                       keyboardType: TextInputType.number,
                                       style: new TextStyle(
                                         fontFamily: "Poppins",
@@ -1307,15 +1278,12 @@ class _Finalfmstate extends State<Finalfm> {
                                         //labelText: "No. of Bathrooms",
                                         hintText: 'Enter No Of Bathrooms',
                                         fillColor: Colors.white,
-                                        contentPadding:
-                                            const EdgeInsets.all(15.0),
+                                        contentPadding: const EdgeInsets.all(15.0),
                                       ),
                                       onSaved: (String value) {
                                         _bath = value;
                                       },
-                                      validator: (value) => value.isEmpty
-                                          ? 'No. of Bathroom is required'
-                                          : null,
+                                      validator: (value) => value.isEmpty ? 'No. of Bathroom is required' : null,
                                       keyboardType: TextInputType.number,
                                       style: new TextStyle(
                                         fontFamily: "Poppins",
@@ -1375,8 +1343,7 @@ class _Finalfmstate extends State<Finalfm> {
                             ),
                             elevation: 6.0,
                             color: Colors.blue[700],
-                            shape: RoundedRectangleBorder(
-                                borderRadius: new BorderRadius.circular(30.0)),
+                            shape: RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
                           ),
                         )),
                   ],
@@ -1482,12 +1449,6 @@ class _TentypeState extends State<Tentype> {
 var _status = true;
 var _uploadStatus = false;
 var _isImageSelected = false;
-// void main() {
-//   runApp(MaterialApp(
-//     title: 'Address',
-//     home: AddImages(),
-//   ));
-// }
 
 class AddImages extends StatelessWidget {
   @override
@@ -1531,12 +1492,12 @@ void createRecord(context) async {
     'ownerDetail': '/User/' + userReference.toString(),
     'status': 'Available'
   });
-  print(ref.id);
-  Navigator.pop(context);
   Navigator.pop(context);
   Fluttertoast.showToast(msg: 'House Ad Posted Successfully');
-  Navigator.pushReplacement(
-      context, MaterialPageRoute(builder: (_) => SearchPage()));
+  _status=true;
+  Navigator.pushReplacement(context,
+      MaterialPageRoute(builder: (context) => SearchPage()));
+
 }
 
 class Choice {
@@ -1558,7 +1519,7 @@ class ChoiceCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final TextStyle textStyle = Theme.of(context).textTheme.display1;
+    final TextStyle textStyle = Theme.of(context).textTheme.headline1;
     return Card(
       color: Colors.white,
       child: Center(
@@ -1581,39 +1542,33 @@ class MultiImage extends StatefulWidget {
 }
 
 class _MultiImageState extends State<MultiImage> {
-  List<Asset> images = List<Asset>();
-  List<String> imagePaths = List<String>();
+  List<File> images = [];
+  List<String> imagePaths = <String>[];
   String _error = 'No Error Dectected';
 
-  @override
-  void initState() {
-    super.initState();
-  }
+
 
   String filePath;
+
   Widget buildGridView() {
     return GridView.count(
       crossAxisCount: 3,
       children: List.generate(images.length, (index) {
-        Asset asset = images[index];
-        return AssetThumb(
-          asset: asset,
-          width: 300,
-          height: 300,
-        );
+        File asset = images[index];
+        return Image.file(asset, width: 300, height: 300, fit: BoxFit.fill);
       }),
     );
   }
 
   //var imageDataPath = { };
   int i = 0, len;
-  Future<Null> _addImages(var pic) async {
-    var t = await pic.filePath;
-    File file = new File(t);
-    filePath = '${DateTime.now()}.png';
+
+  Future<Null> _addImages(File pic) async {
+
+    filePath = '${DateTime.now()}';
     FirebaseStorage storage = FirebaseStorage.instance;
-    Reference ref = storage.refFromURL('gs://farfromhome-2019.appspot.com/').child(filePath);
-    UploadTask task = ref.putFile(file);
+    Reference ref = storage.refFromURL('gs://house-rant.appspot.com/').child(filePath);
+    UploadTask task = ref.putFile(pic);
     TaskSnapshot storageTaskSnapshot = await task.whenComplete(() => null);
     String url = await storageTaskSnapshot.ref.getDownloadURL();
 
@@ -1633,7 +1588,7 @@ class _MultiImageState extends State<MultiImage> {
   }
 
   //Uploading images
-  Future<Null> _uploadImages() {
+  Future<Null> _uploadImages() async {
     setState(() {
       len = images.length;
       _uploadStatus = !_uploadStatus;
@@ -1644,28 +1599,17 @@ class _MultiImageState extends State<MultiImage> {
   }
 
   Future<void> loadAssets() async {
-    List<Asset> resultList = List<Asset>();
+    List<File> resultList = [];
     String error = 'No Error Dectected';
-
+    final ImagePicker _picker = ImagePicker();
     try {
-      resultList = await MultiImagePicker.pickImages(
-        maxImages: 300,
-        enableCamera: true,
-        selectedAssets: images,
-        cupertinoOptions: CupertinoOptions(takePhotoIcon: "chat"),
-        materialOptions: MaterialOptions(
-          actionBarColor: "#1972d2",
-          actionBarTitle: "Select Images",
-          allViewTitle: "All Photos",
-          useDetailsView: false,
-          selectCircleStrokeColor: "#000000",
-        ),
-      );
-
-      for (var r in resultList) {
-        var t = await r.name;
-        //print(t);
+      final List<XFile> images = await _picker.pickMultiImage();
+      for(var i in images){
+        setState(() {
+          resultList.add(File(i.path));
+        });
       }
+
       if (resultList.isNotEmpty) {
         setState(() {
           _isImageSelected = true;
@@ -1679,9 +1623,6 @@ class _MultiImageState extends State<MultiImage> {
       error = e.toString();
     }
 
-    // If the widget was removed from the tree while the asynchronous platform
-    // message was in flight, we want to discard the reply rather than calling
-    // setState to update our non-existent appearance.
     if (!mounted) return;
 
     setState(() {
@@ -1691,52 +1632,57 @@ class _MultiImageState extends State<MultiImage> {
   }
 
   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _status=true;
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return new MaterialApp(
-      home: new Scaffold(
-        appBar: AppBar(
-          title: Text("Add House Images"),
-          backgroundColor: Colors.blue[700],
-          actions: _isImageSelected
-              ? <Widget>[
-                  // action button
-                  _status
-                      ? IconButton(
-                          icon: Icon(choices[0].icon),
-                          onPressed: () {
-                            _uploadImages();
-                          },
-                        )
-                      : IconButton(
-                          icon: Icon(choices[1].icon),
-                          onPressed: () {
-                            print('Saved');
-                            createRecord(context);
-                            //upload code here here
-                          },
-                        ),
-                ]
-              : null,
-        ),
-        body: _uploadStatus
-            ? Center(child: new CircularProgressIndicator())
-            : new Column(
-                children: <Widget>[
-                  Expanded(
-                    child: buildGridView(),
-                  ),
-                ],
-              ),
-        floatingActionButton: _status
-            ? FloatingActionButton(
-                onPressed: () {
-                  loadAssets();
-                },
-                child: Icon(Icons.add_a_photo),
-                backgroundColor: Colors.blue[700],
-              )
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Add House Images"),
+        backgroundColor: Colors.blue[700],
+        actions: _isImageSelected
+            ? <Widget>[
+          // action button
+          _status
+              ? IconButton(
+            icon: Icon(choices[0].icon),
+            onPressed: () {
+              _uploadImages();
+            },
+          )
+              : IconButton(
+            icon: Icon(choices[1].icon),
+            onPressed: () {
+              print('Saved');
+              createRecord(context);
+              //upload code here here
+            },
+          ),
+        ]
             : null,
       ),
+      body: _uploadStatus
+          ? Center(child: new CircularProgressIndicator())
+          : new Column(
+        children: <Widget>[
+          Expanded(
+            child: buildGridView(),
+          ),
+        ],
+      ),
+      floatingActionButton: _status
+          ? FloatingActionButton(
+        onPressed: () {
+          loadAssets();
+        },
+        child: Icon(Icons.add_a_photo),
+        backgroundColor: Colors.blue[700],
+      )
+          : null,
     );
   }
 }

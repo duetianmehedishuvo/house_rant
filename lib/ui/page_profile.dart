@@ -21,7 +21,8 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   void initState(){
     super.initState();
-    //addSnapshot();
+    print(widget.docPath);
+    addSnapshot();
   }
 
   void addSnapshot(){
@@ -63,9 +64,9 @@ class _ProfilePageState extends State<ProfilePage> {
                             alignment: Alignment.topCenter,
                             decoration: BoxDecoration(
                               color: Colors.grey,
-                              image: DecorationImage(
-                                  image: docSnap['profileImage']!=null ? NetworkImage(docSnap['profileImage']) : AssetImage('assets/icons/avatar.png'),
-                                  fit: BoxFit.fill),
+                              // image: DecorationImage(
+                              //     image: docSnap['profileImage']!=null ? NetworkImage(docSnap['profileImage']) : AssetImage('assets/icons/avatar.png'),
+                              //     fit: BoxFit.fill),
                             ),
                           ),
                         ),
@@ -91,10 +92,10 @@ class _ProfilePageState extends State<ProfilePage> {
                                             crossAxisAlignment: CrossAxisAlignment.start,
                                             children: <Widget>[
                                               Text(docSnap['firstName']+' '+docSnap['lastName'],style: new TextStyle( fontSize: size.getWidthPx(25))),
-                                              docSnap['city']!=null ? Row(children: <Widget>[
-                                                Icon(Icons.location_on),
-                                                Text(docSnap['city'],style: new TextStyle(fontSize: size.getWidthPx(20)))
-                                              ],): SizedBox(width: 0,),
+                                              // docSnap['city']!=null ? Row(children: <Widget>[
+                                              //   Icon(Icons.location_on),
+                                              //   Text(docSnap['city'],style: new TextStyle(fontSize: size.getWidthPx(20)))
+                                              // ],): SizedBox(width: 0),
                                             ],
                                           ),
                                         ),
@@ -260,10 +261,10 @@ class _ProfilePageState extends State<ProfilePage> {
                                     width: 80,
                                     decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(10.0),
-                                        image: DecorationImage(
-                                            image: docSnap['profileImage']!=null ? NetworkImage(docSnap['profileImage']) : AssetImage('assets/icons/avatar.png'),
-                                            fit: BoxFit.cover
-                                        )
+                                        // image: DecorationImage(
+                                        //     image: docSnap['profileImage']!=null ? NetworkImage(docSnap['profileImage']) : AssetImage('assets/icons/avatar.png'),
+                                        //     fit: BoxFit.cover
+                                        // )
                                     ),
                                     margin: EdgeInsets.only(left: 16.0),
                                   ),

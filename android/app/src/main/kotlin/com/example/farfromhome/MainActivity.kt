@@ -1,4 +1,4 @@
-package com.example.farfromhome
+package bd.com.houserant
 
 import io.flutter.embedding.android.FlutterActivity
 

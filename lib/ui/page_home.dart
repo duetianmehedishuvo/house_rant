@@ -23,23 +23,25 @@ class _SearchPageState extends State<SearchPage> {
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
   List<Property> recentList =  List();
   List<Property> topList =  List();
-  var citiesList = ["Ahmedabad", "Mumbai", "Anand", "Delhi ", "Vadodara", "Chennai","Goa","Kolkata","Indore","Jaipur"];
+  var citiesList = ["Dhaka","Barisal","Khulna","Jashor"];
   Image image1;
   String docRef;
   String isLoggedIn;
   DocumentSnapshot docsSnap;
 
   void getUserDetails() async{
-    //isLoggedIn= await LocalStorage.sharedInstance.loadAuthStatus(Constants.isLoggedIn);
+    isLoggedIn= await LocalStorage.sharedInstance.loadAuthStatus(Constants.isLoggedIn);
     docRef= await LocalStorage.sharedInstance.loadUserRef(Constants.userRef);
-    print('docRef :'+ docRef);
+
     if(docRef != "NULL"){
       FirebaseFirestore.instance.doc('/User/'+docRef).get().then((DocumentSnapshot docs) {
         print("Doc found");
         setState(() {
-          docsSnap = docs;  
+          docsSnap = docs;
+          print(docsSnap.data());
         });
       });
+
     }else{
       setState((){docsSnap=null;});
       print("Doc Not Exsist");
@@ -177,7 +179,7 @@ class _SearchPageState extends State<SearchPage> {
         ),
         child: InkWell(
           child: Container(
-            height: size.getWidthPx(270),
+            height: size.getWidthPx(275),
             child: Container(
               child: Column(
                 children: <Widget>[
@@ -409,7 +411,7 @@ class _SearchPageState extends State<SearchPage> {
                 leftAlignText(
                   text: NumberFormat.compactCurrency(
                         decimalDigits: 2,
-                        symbol: '\u20b9'
+                        symbol: '৳'
                     ).format(double.parse(property.propertyPrice)),
                     leftPadding: size.getWidthPx(8),
                     textColor: colorCurve,

@@ -30,7 +30,8 @@ dependencies:
   flutter_swiper: ^1.1.4
   carousel_slider: ^3.0.0
   firebase_storage: ^8.0.3
-  multi_image_picker: ^4.5.5
+  multi_image_picker2: ^5.0.2
+  image_picker: ^0.8.4+4
   responsive_container:
   flutter_custom_clippers: ^1.1.2
   font_awesome_flutter: ^9.0.0
@@ -100,11 +101,11 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
+#     - family: Schyler
+#       fonts:
+#         - asset: fonts/Schyler-Regular.ttf
+#         - asset: fonts/Schyler-Italic.ttf
+#           style: italic
   #   - family: Trajan Pro
   #     fonts:
   #       - asset: fonts/TrajanPro.ttf

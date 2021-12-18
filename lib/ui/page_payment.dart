@@ -88,7 +88,7 @@ class _PaymentPageState extends State<PaymentPage> {
                   labelText: 'Mobile Number *', 
                   hintText: 'Enter Your Mobile Number',
                   border: OutlineInputBorder(),
-                  prefixText: "+91",
+                  prefixText: "+88",
                   helperText: 'Verification OTP would be sent on this number',
                   prefixIcon: Icon(Icons.phone)
                 ),

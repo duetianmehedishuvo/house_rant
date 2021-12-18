@@ -26,28 +26,28 @@ class CustomSearchState extends State<CustomSearchPage> {
   final _formKey = GlobalKey<FormState>();
 
   Screen size;
-  var citiesList = ["Ahmedabad", "Mumbai", "Anand", "Delhi ", "Vadodara", "Chennai","Goa","Kolkata","Indore","Jaipur"];
+  var citiesList = ['Dhaka','Barisal','Khulna','jashor'];
   var propertyType = ["Bunglow", "Paying Guest" , "Hostel", "Apartment"];
   var propertyIcon = ["bunglow.png","pg.png","hostel.png","flat.png"];
   var propertyColor = [Color(0xff3ABBFA),Color(0xffFBBF36),Color(0xff83E934),Color(0xffA7A4FC)];
   static double _minlowerValue = 0.0;
   String _lowerValueString = NumberFormat.compactCurrency(
                                 decimalDigits: 0,
-                                symbol: '\u20b9'
+                                symbol: '৳'
                               ).format(_minlowerValue*1000);
   static double _maxupperValue = 100.0;
   String _upperValueString = NumberFormat.compactCurrency(
                                 decimalDigits: 0,
-                                symbol: '\u20b9'
+                                symbol: '৳'
                               ).format(_maxupperValue*1000);
   String _upperValueFormatted = NumberFormat.compactCurrency(
                                 decimalDigits: 0,
-                                symbol: '\u20b9'
+                                symbol: '৳'
                               ).format(_upperValue*1000);
 
   String _lowerValueFormatted = NumberFormat.compactCurrency(
                                 decimalDigits: 0,
-                                symbol: '\u20b9'
+                                symbol: '৳'
                               ).format(_lowerValue*1000);
 
   // Value of Featured City starting from -1 : All city | 0 : Ahemdabad | 1 : Mumbai | 2 : Anand | ... in order mentioned in cityList[] in  line 28
@@ -589,7 +589,7 @@ class CustomSearchState extends State<CustomSearchPage> {
                 height: size.hp(2),
               ),
               leftAlignText(
-                  text: "Rent Range (INR): $_lowerValueFormatted  to $_upperValueFormatted",
+                  text: "Rent Range (BDT): $_lowerValueFormatted  to $_upperValueFormatted",
                   leftPadding: size.getWidthPx(16),
                   textColor: textPrimaryColor,
                   fontSize: size.getWidthPx(16)),
