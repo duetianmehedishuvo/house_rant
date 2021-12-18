@@ -1,14 +1,15 @@
+import 'dart:core';
+import 'dart:io';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:farfromhome/LocalBindings.dart';
 import 'package:farfromhome/ui/page_home.dart';
 import 'package:farfromhome/ui/page_house_detail.dart';
-import 'package:flutter/material.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:fluttertoast/fluttertoast.dart';
-import 'dart:io';
-import 'dart:core';
-import 'dart:async';
+import 'package:farfromhome/utils/Constants.dart';
 import 'package:firebase_storage/firebase_storage.dart';
+import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:multi_image_picker2/multi_image_picker2.dart';
 
 class AddHouse extends StatefulWidget {
   var docRef;
@@ -66,9 +67,6 @@ String _deposit;
 String _detail;
 String _beds;
 String _bath;
-String _ownname;
-String _owndetail;
-String _ownnumber;
 int _value = 0;
 int groupValue = 0;
 String _farnistatus;
@@ -90,12 +88,6 @@ class _WallState extends State<Wall> {
     final form = _formKey.currentState;
     if (form.validate()) {
       form.save();
-      print('_locality ${_locality}');
-      print('_City ${_city}');
-      print('_State ${_state}');
-      print('_Address ${_address}');
-      print('_ pincode ${_pincod}');
-      print('_ HouseNO ${_hono}');
       //createRecord(context);
       Navigator.push(context, MaterialPageRoute(builder: (context) => Secondpage()));
       return true;
@@ -304,11 +296,6 @@ class _InteState extends State<Inte> {
     final form = _formKey1.currentState;
     if (form.validate()) {
       form.save();
-      print('_Builup ${_buildup}');
-      print('_monthly rent ${_monthly}');
-      print('_Deposite ${_deposit}');
-      // print('_Address ${_address}');
-      print('_Deposite ${_filter}');
       Navigator.push(context, MaterialPageRoute(builder: (context) => Thirdpage()));
 
       return true;
@@ -1489,7 +1476,7 @@ void createRecord(context) async {
     'depositAmount': _deposit,
     'description': _detail,
     'monthlyRent': _monthly,
-    'ownerDetail': '/User/' + userReference.toString(),
+    'ownerDetail': '/User/' + await LocalStorage.sharedInstance.loadUserRef(Constants.userRef),
     'status': 'Available'
   });
   Navigator.pop(context);

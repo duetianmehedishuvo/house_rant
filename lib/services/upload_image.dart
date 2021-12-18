@@ -3,7 +3,6 @@ import 'dart:core';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:farfromhome/ui/page_house_detail.dart';
 import 'package:flutter/material.dart';
-import 'dart:async';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:multi_image_picker2/multi_image_picker2.dart';
 
@@ -69,9 +68,8 @@ class MultiImage extends StatefulWidget {
 }
 
 class _MultiImageState extends State<MultiImage> {
-    List<Asset> images = List<Asset>();
-    List <String> imagePaths = List<String>();
-   String _error = 'No Error Dectected';
+    List<Asset> images = <Asset>[];
+    List <String> imagePaths = <String>[];
    var path,docSnap;
     _MultiImageState(this.path,this.docSnap);
    @override
@@ -137,7 +135,6 @@ class _MultiImageState extends State<MultiImage> {
 
   Future<void> loadAssets() async {
     List<Asset> resultList = [];
-    String error = 'No Error Dectected';
 
     try {
       resultList = await MultiImagePicker.pickImages(
@@ -154,10 +151,7 @@ class _MultiImageState extends State<MultiImage> {
         ),
       );
 
-      for (var r in resultList) {
-        var t = await r.name;
-        //print(t);
-      }
+
       if(resultList.isNotEmpty){
         setState(() {
           _isImageSelected = true;
@@ -168,7 +162,6 @@ class _MultiImageState extends State<MultiImage> {
         });
       }
     } on Exception catch (e) {
-      error = e.toString();
     }
 
     // If the widget was removed from the tree while the asynchronous platform
@@ -178,7 +171,6 @@ class _MultiImageState extends State<MultiImage> {
 
     setState(() {
       images = resultList;
-      _error = error;
     });
   }
   var complete=0;

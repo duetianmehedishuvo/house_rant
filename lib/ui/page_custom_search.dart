@@ -1,10 +1,10 @@
 import 'package:farfromhome/LocalBindings.dart';
 import 'package:farfromhome/ui/page_search.dart';
+import 'package:farfromhome/utils/responsive_screen.dart';
+import 'package:farfromhome/utils/utils.dart';
+import 'package:farfromhome/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:farfromhome/utils/utils.dart';
-import 'package:farfromhome/utils/responsive_screen.dart';
-import 'package:farfromhome/widgets/widgets.dart';
 import 'package:flutter_range_slider/flutter_range_slider.dart' as frs;
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:intl/intl.dart';

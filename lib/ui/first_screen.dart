@@ -1,9 +1,8 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:farfromhome/ui/page_home.dart';
 import 'package:farfromhome/ui/page_login.dart';
 import 'package:farfromhome/ui/page_signup.dart';
 import 'package:farfromhome/utils/responsive_screen.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 
 class FirstScreen extends StatelessWidget {

@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:farfromhome/LocalBindings.dart';
 import 'package:farfromhome/ui/page_add_house.dart';
 import 'package:farfromhome/ui/page_custom_search.dart';
+import 'package:farfromhome/ui/page_house_detail.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
@@ -21,14 +22,14 @@ class _SearchPageState extends State<SearchPage> {
   Screen size;
   int _selectedIndex = -1;
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
-  List<Property> recentList =  List();
-  List<Property> topList =  List();
+  List<Property> recentList = [];
+  List<Property> topList =  [];
   var citiesList = ["Dhaka","Barisal","Khulna","Jashor"];
   Image image1;
   String docRef;
   String isLoggedIn;
   DocumentSnapshot docsSnap;
-
+  List<QueryDocumentSnapshot> query=[];
   void getUserDetails() async{
     isLoggedIn= await LocalStorage.sharedInstance.loadAuthStatus(Constants.isLoggedIn);
     docRef= await LocalStorage.sharedInstance.loadUserRef(Constants.userRef);
@@ -48,21 +49,38 @@ class _SearchPageState extends State<SearchPage> {
     }
   }
 
+  void getPropertyData() async{
+    var collection = FirebaseFirestore.instance.collection('House');
+    var querySnapshot = await collection.get();
+
+    query=[];
+    query.addAll(querySnapshot.docs);
+
+    topList =  [];
+    for (var queryDocumentSnapshot in querySnapshot.docs) {
+      Map<String, dynamic> data = queryDocumentSnapshot.data();
+      setState(() {
+        topList.add(Property.fromJson(data));
+      });
+    }
+    print('shss ${topList.length}');
+  }
+
   @override
   void initState() {  
     // TODO: implement initState
     super.initState();
     setState((){docsSnap=null;});
     getUserDetails();
-    
+    getPropertyData();
     image1 = Image.asset("assets/drawer_design.png", gaplessPlayback: true);
 
-    topList
-    ..add(Property(propertyName:"Omkar Lotus", propertyLocation:"Ahmedabad ", image:"feature_1.jpg", propertyPrice:"26000"))
-    ..add(Property(propertyName:"Sandesh Heights", propertyLocation:"Baroda ", image:"feature_2.jpg", propertyPrice:"11500"))
-    ..add(Property(propertyName:"Sangath Heights", propertyLocation:"Pune ", image:"feature_3.jpg", propertyPrice:"19000"))
-    ..add(Property(propertyName:"Adani HighRise", propertyLocation:"Mumbai ", image:"hall_1.jpg", propertyPrice:"225000"))
-    ..add(Property(propertyName:"N.G Tower", propertyLocation:"Gandhinagar ", image:"hall_2.jpeg", propertyPrice:"75000"));
+    // topList
+    // ..add(Property(propertyName:"Omkar Lotus", propertyLocation:"Ahmedabad ", image:"feature_1.jpg", propertyPrice:"26000"))
+    // ..add(Property(propertyName:"Sandesh Heights", propertyLocation:"Baroda ", image:"feature_2.jpg", propertyPrice:"11500"))
+    // ..add(Property(propertyName:"Sangath Heights", propertyLocation:"Pune ", image:"feature_3.jpg", propertyPrice:"19000"))
+    // ..add(Property(propertyName:"Adani HighRise", propertyLocation:"Mumbai ", image:"hall_1.jpg", propertyPrice:"225000"))
+    // ..add(Property(propertyName:"N.G Tower", propertyLocation:"Gandhinagar ", image:"hall_2.jpeg", propertyPrice:"75000"));
 
     recentList
     ..add(Property(propertyName:"Vishwas CityRise", propertyLocation:"Pune ", image:"hall_1.jpg", propertyPrice:"17500"))
@@ -149,7 +167,11 @@ class _SearchPageState extends State<SearchPage> {
             HorizontalList(
               children: <Widget>[
                 for (int i = 0; i < topList.length; i++)
-                  propertyCard(topList[i])
+                  InkWell(
+                      onTap: (){
+                        Navigator.of(context).push(MaterialPageRoute(builder: (_)=>HouseDetail(query[i])));
+                      },
+                      child: propertyCard(topList[i]))
               ],
             ),
             leftAlignText(
@@ -385,7 +407,7 @@ class _SearchPageState extends State<SearchPage> {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
         borderOnForeground: true,
         child: Container(
-            height: size.getWidthPx(150),
+            height: size.getWidthPx(175),
             width: size.getWidthPx(170),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -394,7 +416,7 @@ class _SearchPageState extends State<SearchPage> {
                     borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(12.0),
                         topRight: Radius.circular(12.0)),
-                    child: Image.asset('assets/${property.image}',
+                    child: Image.network('${property.image}',
                         fit: BoxFit.fill)),
                 SizedBox(height: size.getWidthPx(8)),
                 leftAlignText(
