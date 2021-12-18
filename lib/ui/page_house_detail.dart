@@ -39,7 +39,6 @@ class CarouselWithIndicator extends StatefulWidget {
 }
 
 class _CarouselWithIndicatorState extends State<CarouselWithIndicator> {
-
   final DocumentSnapshot snapshot;
 
   _CarouselWithIndicatorState(this.snapshot);
@@ -85,7 +84,7 @@ class _HouseDetailState extends State<HouseDetail> {
 
   _HouseDetailState(this.snapshot);
 
-  bool  _fireStatus = false;
+  bool _fireStatus = false;
 
   @override
   void initState() {
@@ -94,23 +93,17 @@ class _HouseDetailState extends State<HouseDetail> {
   }
 
   void ownerDetail() async {
-    print('OwnerDetail');
     FirebaseFirestore.instance.doc(snapshot['ownerDetail'].toString()).get().then((DocumentSnapshot ds) {
-      print('Doc Found Owner');
-      print(ds['firstName']);
       setState(() {
         ownerSnapshot = ds;
       });
     });
-    print('Outside 108');
     userReference = await LocalStorage.sharedInstance.loadUserRef(Constants.userRef);
     FirebaseFirestore.instance.doc('/User/' + userReference).get().then((DocumentSnapshot ds) {
-      print('Loged in with ' + ds['firstName']);
       if (ds.data().containsKey('FavouriteHouse')) {
         if (ds['FavouriteHouse'].contains('/House/' + snapshot.id)) {
           setState(() {
             _fireStatus = true;
-            print('TRUE');
           });
         }
       }
