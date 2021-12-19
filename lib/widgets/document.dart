@@ -81,18 +81,10 @@ Widget detailWidget(_type,_name,_add1,_city,_mobile,_email){
 }
 
 Future<Document> generateDocument(PdfPageFormat format,payment,owner) async {
-  final Document pdf = Document(title: 'Payment Invoice', author: 'Far From Home');
+  final Document pdf = Document(title: 'Payment Invoice', author: 'BD House Rent');
   var _date = new DateFormat('dd-MM-yyyy').format(payment['dateCreated']);
    
   var size = PdfPageFormat.cm;
-  /*final PdfImage profileImage = await PdfImage.file(
-      pdf: pdf.document,
-      image: fw.NetworkImage(
-        'https://firebasestorage.googleapis.com/v0/b/farfromhome-2019.appspot.com/o/logo_inverted.png?alt=media&token=16da4a5e-3db6-4ff2-ae69-c5b134c6b1e8',
-      ),
-      onError: (dynamic exception, StackTrace stackTrace) {
-        print('Far From Home Logo');
-      }); */
 
   pdf.addPage(MyPage(
     pageFormat: format.applyMargin(
@@ -110,7 +102,7 @@ Future<Document> generateDocument(PdfPageFormat format,payment,owner) async {
                 child: Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
-                      'Far From Home',
+                      'BD House Rent',
                       style: TextStyle(
                         fontSize: 30,
                         fontWeight: FontWeight.bold,
@@ -129,15 +121,12 @@ Future<Document> generateDocument(PdfPageFormat format,payment,owner) async {
                       height: 60,
                       color: lightblue,
                       child: Container()))
-                      //child: profileImage == null
-                      //  ? Container()
-                      //  : Image(profileImage))),
                 ),
               ),
             ],
           ),
           SizedBox(
-            height: 0.5 * size,
+            height: 0.5 * size
           ),
           Row(
             children: <Widget>[
@@ -346,7 +335,7 @@ Future<Document> generateDocument(PdfPageFormat format,payment,owner) async {
         ),
         Align(
           child: Text(
-            'Far From Home',
+            'BD House Rent',
             style: TextStyle(
               fontSize: 14,
               fontWeight: FontWeight.normal,

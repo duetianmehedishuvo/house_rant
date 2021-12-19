@@ -3,7 +3,6 @@ import 'dart:io';
 import 'package:farfromhome/ui/page_home.dart';
 import 'package:farfromhome/utils/utils.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:pdf/pdf.dart';
@@ -73,8 +72,8 @@ class InvoiceState extends State<Invoice> {
         referenceBox.localToGlobal(referenceBox.paintBounds.bottomRight);
     final Rect bounds = Rect.fromPoints(topLeft, bottomRight);
     // TODO Fix Future bytes error (uncomment to see error)
-    /*await Printing.sharePdf(
-        bytes: document.save(), filename: '$_filename.pdf', bounds: bounds);*/
+    await Printing.sharePdf(
+        bytes: await document.save(), filename: '$_filename.pdf', bounds: bounds);
     //Navigator.push(context,MaterialPageRoute(builder: (_) => SearchPage()));
   }
 
@@ -143,7 +142,7 @@ class InvoiceState extends State<Invoice> {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: <Widget>[
                       Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 8.0,horizontal: 67),
+                        padding: const EdgeInsets.symmetric(vertical: 8.0,horizontal: 50),
                         child: RaisedButton(
                             color: Colors.green[800],
                             textColor: Colors.white,
@@ -156,7 +155,7 @@ class InvoiceState extends State<Invoice> {
                             ), onPressed: _printPdf),
                       ),
                       Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 8.0,horizontal: 67),
+                        padding: const EdgeInsets.symmetric(vertical: 8.0,horizontal: 50),
                         child: RaisedButton(
                             color: Colors.green[800],
                             key: shareWidget,
