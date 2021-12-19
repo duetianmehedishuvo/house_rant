@@ -67,9 +67,9 @@ class _UsersState extends State<Users> {
           : Container(
             padding: new EdgeInsets.fromLTRB(size.getWidthPx(10),size.getWidthPx(10),size.getWidthPx(10),0),
             child: ListView.builder(
-              itemCount: snapshot.data.documents.length,
+              itemCount: snapshot.data.docs.length,
               itemBuilder: (context, index) {
-                DocumentSnapshot docsSnap = snapshot.data.documents[index];
+                DocumentSnapshot docsSnap = snapshot.data.docs[index];
               return Column(
                 mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
@@ -97,7 +97,7 @@ class _UsersState extends State<Users> {
             },
             child: Container(
               width: size.wp(90),
-              height: size.hp(15),
+              height: size.hp(17),
               child: Row(
                 children: <Widget>[
                   Container(
@@ -134,9 +134,9 @@ class _UsersState extends State<Users> {
                               ),
                               docsSnap.data().containsKey("city") ?
                               Text(
-                                "${docsSnap['city']}, India",
+                                "${docsSnap['city']}, Bangladesh",
                                 style: TextStyle(color: Colors.grey,fontSize: size.getWidthPx(16)),
-                              ) : Text("India",style: TextStyle(color: Colors.grey,fontSize: size.getWidthPx(16))),
+                              ) : Text("Bangladesh",style: TextStyle(color: Colors.grey,fontSize: size.getWidthPx(16))),
                             ],
                           ),
                           SizedBox(

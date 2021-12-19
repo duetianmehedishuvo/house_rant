@@ -258,7 +258,7 @@ class _SignUpPageState extends State<SignUpPage> {
                             horizontal: size.wp(2.5), vertical: size.hp(2))
                     ),
                     validator: (value)=> value.isEmpty?"Mobile Number can't be empty":null,
-                    onSaved: (value) => _phoneNo = "+91" + value,
+                    onSaved: (value) => _phoneNo = "+88" + value,
                   ),
                 ),
               ),

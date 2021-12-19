@@ -4,7 +4,6 @@ import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:farfromhome/LocalBindings.dart';
 import 'package:farfromhome/ui/page_home.dart';
-import 'package:farfromhome/ui/page_house_detail.dart';
 import 'package:farfromhome/utils/Constants.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
@@ -599,7 +598,7 @@ class _InteState extends State<Inte> {
                                   Expanded(
                                     child: TextFormField(
                                       decoration: new InputDecoration(
-                                        hintText: 'Monthly Rent in INR',
+                                        hintText: 'Monthly Rent in BDT',
                                         fillColor: Colors.white,
                                         contentPadding: const EdgeInsets.all(10.0),
                                       ),
@@ -615,7 +614,7 @@ class _InteState extends State<Inte> {
                                   ),
                                   RichText(
                                     text: TextSpan(
-                                      text: "Rs/Month",
+                                      text: "TAKA/Month",
                                       style: TextStyle(
                                         fontSize: 18.0,
                                         color: Colors.grey[500],
@@ -690,7 +689,7 @@ class _InteState extends State<Inte> {
                                   ),
                                   RichText(
                                     text: TextSpan(
-                                      text: "Rs              ",
+                                      text: "TAKA            ",
                                       style: TextStyle(
                                         fontSize: 18.0,
                                         color: Colors.grey[500],

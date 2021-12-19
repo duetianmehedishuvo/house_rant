@@ -87,18 +87,9 @@ class _SearchPageState extends State<SearchPage> {
     getPropertyData();
     image1 = Image.asset("assets/drawer_design.png", gaplessPlayback: true);
 
-    recentList
-      ..add(Property(propertyName: "Vishwas CityRise", propertyLocation: "Pune ", image: "hall_1.jpg", propertyPrice: "17500"))
-      ..add(Property(propertyName: "Gift City", propertyLocation: "Ahmedabad ", image: "hall_2.jpeg", propertyPrice: "13500000"))
-      ..add(Property(propertyName: "Velone City", propertyLocation: "Mumbai ", image: "feature_1.jpg", propertyPrice: "11500000"))
-      ..add(Property(propertyName: "PabelBay", propertyLocation: "Ahmedabad ", image: "hall_1.jpg", propertyPrice: "33000000"))
-      ..add(Property(
-          propertyName: "Sapath Hexa Tower", propertyLocation: "Ahmedabad", image: "feature_3.jpg", propertyPrice: "156000"));
   }
 
-  // void addTopList(){
-  //   final startAtTimestamp = Timestamp.fromMillisecondsSinceEpoch(DateTime.parse('2019-03-13 16:49:42.044').millisecondsSinceEpoch);
-  // }
+
 
   @override
   void didChangeDependencies() {

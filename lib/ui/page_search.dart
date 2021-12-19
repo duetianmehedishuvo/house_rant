@@ -46,9 +46,9 @@ class _SearchResultPageState extends State<SearchResultPage> {
           )
           : Container(
             child: ListView.builder(
-                  itemCount: snapshot.data.documents.length,
+                  itemCount: snapshot.data.docs.length,
                   itemBuilder: (context, index) {
-                    DocumentSnapshot docsSnap = snapshot.data.documents[index];
+                    DocumentSnapshot docsSnap = snapshot.data.docs[index];
                     return Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[

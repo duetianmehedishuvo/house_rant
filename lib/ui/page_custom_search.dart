@@ -589,7 +589,7 @@ class CustomSearchState extends State<CustomSearchPage> {
                 height: size.hp(2),
               ),
               leftAlignText(
-                  text: "Rent Range (BDT): $_lowerValueFormatted  to $_upperValueFormatted",
+                  text: "Rent Range (BDT): 0  to 100k ৳",
                   leftPadding: size.getWidthPx(16),
                   textColor: textPrimaryColor,
                   fontSize: size.getWidthPx(16)),
@@ -597,20 +597,18 @@ class CustomSearchState extends State<CustomSearchPage> {
                 height: size.hp(1.5),
               ),
               _buildRangeSlider(),
-              Row(
-                children: <Widget>[
-                  SizedBox(
-                    width: size.wp(4),
-                  ),
-                  Align(alignment: Alignment.centerLeft,child: Text("$_lowerValueString")),
-                  SizedBox(
-                    width: size.wp(70),
-                  ),
-                  Align(alignment: Alignment.centerRight,child: Text("$_upperValueString")),
-                  SizedBox(
-                    width: size.wp(4),
-                  ),
-                ],
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 15),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+
+                    Text("$_lowerValueString"),
+
+                    Text("$_upperValueString"),
+
+                  ],
+                ),
               ),
               SizedBox(height: size.hp(2),),
               leftAlignText(

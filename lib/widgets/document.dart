@@ -1,9 +1,9 @@
 import 'dart:async';
-import 'package:flutter/widgets.dart' as fw;
+
 import 'package:intl/intl.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart';
-import 'package:printing/printing.dart';
+
 import 'example_widgets.dart';
 
 Widget drawLine(size){

@@ -166,6 +166,8 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
         onPressed: () {
           // Validate Email First
           validateAndSubmit();
+          Fluttertoast.showToast(msg: "Please Check Your Mail");
+          Navigator.of(context).pop();
         },
       ),
     );

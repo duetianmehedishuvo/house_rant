@@ -24,7 +24,7 @@ class _PhotosListState extends State<PhotosList> {
   }
   
   void getSnap() async{
-    var document = await FirebaseFirestore.instance.doc('/House/'+docRef);
+    var document = FirebaseFirestore.instance.doc('/House/'+docRef);
       document.get().then((DocumentSnapshot doc) {
           setState(() {
             docsSnap = doc;
