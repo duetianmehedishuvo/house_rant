@@ -309,7 +309,7 @@ class _SearchPageState extends State<SearchPage> {
         margin: EdgeInsets.symmetric(horizontal: size.getWidthPx(20), vertical: size.getWidthPx(0)),
         borderOnForeground: true,
         child: Container(
-          height: size.getWidthPx(150),
+          height: size.getWidthPx(60),
           child: Column(
             children: <Widget>[
               GestureDetector(
@@ -322,10 +322,6 @@ class _SearchPageState extends State<SearchPage> {
                 onTap: () {
                   Navigator.push(context, MaterialPageRoute(builder: (_) => CustomSearchPage()));
                 },
-              ),
-              leftAlignText(text: "Top Cities :", leftPadding: size.getWidthPx(16), textColor: textPrimaryColor, fontSize: 16.0),
-              HorizontalList(
-                children: <Widget>[for (int i = 0; i < citiesList.length; i++) buildChoiceChip(i, citiesList[i])],
               ),
             ],
           ),

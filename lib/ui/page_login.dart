@@ -62,14 +62,14 @@ class _LoginPageState extends State<LoginPage> {
         Navigator.pushReplacement(
             context, MaterialPageRoute(builder: (context) => SearchPage()));
       } catch (e) {
-        print("error : $e");
+        // print("error : $e");
         // print('Message');
         // print(e.message);
         // print('Code');
         // print(e.code);
         // print('Details');
         // print(e.details);
-        Fluttertoast.showToast(msg: e.code);
+        Fluttertoast.showToast(msg: e.message);
       }
     }
   }

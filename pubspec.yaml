@@ -73,12 +73,6 @@ flutter:
     - assets/
     - assets/icons/
     - assets/developers/
-    - assets/icnfb.png
-    - assets/icngmail.png
-    - assets/icn_twitter.png
-    - assets/imgforgot.png
-    - assets/logo_splash.png
-    - assets/icn_coming_soon.png
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
