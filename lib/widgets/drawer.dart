@@ -4,6 +4,7 @@ import 'package:farfromhome/ui/first_screen.dart';
 import 'package:farfromhome/ui/page_add_house.dart';
 import 'package:farfromhome/ui/page_custom_search.dart';
 import 'package:farfromhome/ui/page_login.dart';
+import 'package:farfromhome/ui/page_other_services.dart';
 import 'package:farfromhome/ui/page_profile.dart';
 import 'package:farfromhome/ui/page_splash.dart';
 import 'package:farfromhome/ui/page_users.dart';
@@ -116,7 +117,7 @@ Widget drawer(img,context,_imageUrl,_name,_email,logStatus,docRef){
               if(logStatus == "false"){
                 Fluttertoast.showToast(msg: 'Login / Signup is required');
                 Navigator.pop(context);
-                Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => FirstScreen()));
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => LoginScreen()));
               }else{
                 Navigator.push(context,MaterialPageRoute(builder: (_)=>AddHouse(docRef)));
               }
@@ -146,7 +147,7 @@ Widget drawer(img,context,_imageUrl,_name,_email,logStatus,docRef){
               Navigator.pop(context);
               if(logStatus == "false"){
                 Fluttertoast.showToast(msg: 'Login / Signup is required');
-                Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => FirstScreen()));
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => LoginScreen()));
               }else{
                 Fluttertoast.showToast(msg: 'Redirected to Fovroites Page');
               }
@@ -176,10 +177,39 @@ Widget drawer(img,context,_imageUrl,_name,_email,logStatus,docRef){
               Navigator.pop(context);
               if(logStatus == "false"){
                 Fluttertoast.showToast(msg: 'Login / Signup is required');
-                Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => FirstScreen()));
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => LoginScreen()));
               }else{
                 Navigator.push(context,MaterialPageRoute(builder: (_) => Users()));
               // _uri
+              }
+            },
+          ),
+          // Other Services
+          ListTile(
+            title: Text(
+              'Other Services',
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.w400,
+              ),
+            ),
+            leading: Builder(
+              builder: (BuildContext context) {
+                return Icon(
+                  FontAwesomeIcons.servicestack,
+                  size: 20,
+                  color: Colors.green,
+                );
+              },
+            ),
+            onTap: () {
+              Navigator.pop(context);
+              if(logStatus == "false"){
+                Fluttertoast.showToast(msg: 'Login / Signup is required');
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => LoginScreen()));
+              }else{
+                Navigator.push(context,MaterialPageRoute(builder: (_) => PageOtherServices()));
+                // _uri
               }
             },
           ),
@@ -206,7 +236,7 @@ Widget drawer(img,context,_imageUrl,_name,_email,logStatus,docRef){
               Navigator.pop(context);
               if(logStatus == "false"){
                 Fluttertoast.showToast(msg: 'Login / Signup is required');
-                Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => FirstScreen()));
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => LoginScreen()));
               }else{
                 Navigator.push(context,MaterialPageRoute(builder: (_) => Users()));
               // _uri

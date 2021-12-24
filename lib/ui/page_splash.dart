@@ -54,7 +54,7 @@ class _SplashScreenState extends State<SplashScreen> {
       Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => OnBoardingPage()));
     }else{
       if(isLoggedIn==null || isLoggedIn=="false"){
-        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => FirstScreen()));
+        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginScreen()));
       }else{
         Navigator.pushReplacement(context, MaterialPageRoute(builder: (_)=> SearchPage()));
       }
