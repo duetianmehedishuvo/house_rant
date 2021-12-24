@@ -1,4 +1,6 @@
-import 'package:farfromhome/ui/first_screen.dart';
+import 'package:farfromhome/LocalBindings.dart';
+import 'package:farfromhome/ui/page_other_services_details.dart';
+import 'package:farfromhome/utils/Constants.dart';
 import 'package:farfromhome/utils/responsive_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_search_bar/flutter_search_bar.dart';
@@ -15,6 +17,7 @@ class _PageOtherServicesState extends State<PageOtherServices> {
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
   Screen size;
   SearchBar searchBar;
+  bool hasPermission;
 
   void onSubmitted(String value) {
     setState(() => _scaffoldKey.currentState.showSnackBar(new SnackBar(content: new Text('You wrote $value!'))));
@@ -22,6 +25,26 @@ class _PageOtherServicesState extends State<PageOtherServices> {
 
   AppBar buildAppBar(BuildContext context) {
     return new AppBar(title: new Text('Other Services'), backgroundColor: Colors.blue[700]);
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    getPermission();
+  }
+
+  getPermission() async {
+    String userKey = (await LocalStorage.sharedInstance.loadUserRef(Constants.userRef));
+    hasPermission = userKey == "GAXI6r4i4PGzmBj9KjXq"
+        ? true
+        : userKey == "0SaeQQ01vVUyHvc9eseq"
+            ? true
+            : userKey == "SMfCmkpDaeqNmeF81fy3"
+                ? true
+                : userKey == "dfo9CrJs7wCyAhDJOEF4"
+                    ? true
+                    : false;
   }
 
   @override
@@ -45,7 +68,8 @@ class _PageOtherServicesState extends State<PageOtherServices> {
                   width: size.screenSize.width * 0.7,
                   child: MaterialButton(
                       onPressed: () {
-                        Navigator.of(context).push(MaterialPageRoute(builder: (_)=>LoginScreen()));
+                        Navigator.of(context)
+                            .push(MaterialPageRoute(builder: (_) => PageOtherServicesDetails(servicesLists[0], hasPermission)));
                       },
                       child: Text('House Cleaner'),
                       color: Colors.blue,
@@ -55,7 +79,8 @@ class _PageOtherServicesState extends State<PageOtherServices> {
                   width: size.screenSize.width * 0.7,
                   child: MaterialButton(
                       onPressed: () {
-                        Navigator.of(context).push(MaterialPageRoute(builder: (_)=>LoginScreen()));
+                        Navigator.of(context)
+                            .push(MaterialPageRoute(builder: (_) => PageOtherServicesDetails(servicesLists[1], hasPermission)));
                       },
                       child: Text('plumber Contact'),
                       color: Colors.blue,
@@ -65,7 +90,8 @@ class _PageOtherServicesState extends State<PageOtherServices> {
                   width: size.screenSize.width * 0.7,
                   child: MaterialButton(
                       onPressed: () {
-                        Navigator.of(context).push(MaterialPageRoute(builder: (_)=>LoginScreen()));
+                        Navigator.of(context)
+                            .push(MaterialPageRoute(builder: (_) => PageOtherServicesDetails(servicesLists[2], hasPermission)));
                       },
                       child: Text('Internet Service Provider Contact'),
                       color: Colors.blue,
@@ -76,7 +102,8 @@ class _PageOtherServicesState extends State<PageOtherServices> {
                   width: size.screenSize.width * 0.7,
                   child: MaterialButton(
                       onPressed: () {
-                        Navigator.of(context).push(MaterialPageRoute(builder: (_)=>LoginScreen()));
+                        Navigator.of(context)
+                            .push(MaterialPageRoute(builder: (_) => PageOtherServicesDetails(servicesLists[3], hasPermission)));
                       },
                       child: Text('Dish Connection Provider Contact'),
                       color: Colors.blue,
@@ -86,7 +113,8 @@ class _PageOtherServicesState extends State<PageOtherServices> {
                   width: size.screenSize.width * 0.7,
                   child: MaterialButton(
                       onPressed: () {
-                        Navigator.of(context).push(MaterialPageRoute(builder: (_)=>LoginScreen()));
+                        Navigator.of(context)
+                            .push(MaterialPageRoute(builder: (_) => PageOtherServicesDetails(servicesLists[4], hasPermission)));
                       },
                       child: Text('Daily Labor Finder'),
                       color: Colors.blue,
@@ -96,7 +124,8 @@ class _PageOtherServicesState extends State<PageOtherServices> {
                   width: size.screenSize.width * 0.7,
                   child: MaterialButton(
                       onPressed: () {
-                        Navigator.of(context).push(MaterialPageRoute(builder: (_)=>LoginScreen()));
+                        Navigator.of(context)
+                            .push(MaterialPageRoute(builder: (_) => PageOtherServicesDetails(servicesLists[5], hasPermission)));
                       },
                       child: Text('Electrician Contact'),
                       color: Colors.blue,
