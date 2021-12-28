@@ -1,4 +1,3 @@
-import 'dart:ui';
 import 'package:flutter/material.dart';
 
 Color colorCurve = Colors.blue[700]; //Color.fromRGBO(97, 10, 165, 0.8);

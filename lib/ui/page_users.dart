@@ -2,7 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:farfromhome/ui/page_payment.dart';
 import 'package:farfromhome/ui/page_profile.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:farfromhome/utils/responsive_screen.dart';
 import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -29,9 +28,8 @@ class _UsersState extends State<Users> {
   
   AppBar buildAppBar(BuildContext context) {
     return new AppBar(
-        title: new Text('Search People'),
-        backgroundColor: Colors.blue[700],
-        actions: [searchBar.getSearchAction(context)]);
+        title: new Text('Contact User'),
+        backgroundColor: Colors.blue[700]);
   }
   
   _UsersState() {

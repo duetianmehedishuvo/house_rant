@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:farfromhome/ui/page_other_services_details.dart';
 import 'package:farfromhome/utils/utils.dart';
 import 'package:farfromhome/widgets/auth_design.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -23,6 +24,7 @@ class _PageOtherServiceAddState extends State<PageOtherServiceAdd> {
   String _phoneNo;
   String _fname;
   String _lname;
+  String _nidFiled;
   Screen size;
 
   final DocumentReference documentReference = FirebaseFirestore.instance.collection("Services").doc();
@@ -36,6 +38,7 @@ class _PageOtherServiceAddState extends State<PageOtherServiceAdd> {
       "mobileNo": _phoneNo,
       "email": _email,
       "address": _location,
+      "nid": _nidFiled,
       "status": true,
       "Date Created": DateTime.now()
     };
@@ -259,9 +262,30 @@ class _PageOtherServiceAddState extends State<PageOtherServiceAdd> {
                 ),
               ),
             ),
-            SizedBox(
-              height: size.hp(2),
+            SizedBox(height: size.hp(2)),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: size.wp(6)),
+              child: Material(
+                elevation: 2.0,
+                borderRadius: BorderRadius.all(Radius.circular(30)),
+                child: TextFormField(
+                  keyboardType: TextInputType.number,
+                  cursorColor: Colors.blue[900],
+                  decoration: InputDecoration(
+                      hintText: "Nid",
+                      prefixIcon: Material(
+                        elevation: 0,
+                        borderRadius: BorderRadius.all(Radius.circular(30)),
+                        child: Icon(Icons.insert_drive_file_outlined, color: Colors.blue[700]),
+                      ),
+                      border: InputBorder.none,
+                      contentPadding: EdgeInsets.symmetric(horizontal: size.wp(2.5), vertical: size.hp(2))),
+                  validator: (value) => value.isEmpty ? "NID can't be empty" : null,
+                  onSaved: (value) => _nidFiled = value,
+                ),
+              ),
             ),
+            SizedBox(height: size.hp(2)),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: size.hp(3)),
               child: Material(

@@ -124,36 +124,6 @@ Widget drawer(img,context,_imageUrl,_name,_email,logStatus,docRef){
               // _uri
             },
           ),
-
-          // My Favrourites
-          ListTile(
-            title: Text(
-                "My Favrouites",
-                style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.w400,
-              ),
-            ),
-            leading: Builder(
-              builder: (BuildContext context) {
-                return Icon(
-                  FontAwesomeIcons.solidHeart,
-                  size: 20,
-                  color: Colors.red,
-                );
-              },
-            ),
-            onTap: () {
-              Navigator.pop(context);
-              if(logStatus == "false"){
-                Fluttertoast.showToast(msg: 'Login / Signup is required');
-                Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => LoginScreen()));
-              }else{
-                Fluttertoast.showToast(msg: 'Redirected to Fovroites Page');
-              }
-              // _uri
-            },
-          ),
           
           // Pay Rents
           ListTile(

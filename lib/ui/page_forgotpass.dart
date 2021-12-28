@@ -12,7 +12,6 @@ class ForgotPasswordPage extends StatefulWidget {
 
 class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  bool _autoValidate = false;
   String _email;
   bool isLoading = false;
 
@@ -166,8 +165,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
         onPressed: () {
           // Validate Email First
           validateAndSubmit();
-          Fluttertoast.showToast(msg: "Please Check Your Mail");
-          Navigator.of(context).pop();
+
         },
       ),
     );

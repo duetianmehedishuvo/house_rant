@@ -1,10 +1,8 @@
 import 'package:farfromhome/LocalBindings.dart';
 import 'package:farfromhome/ui/page_search.dart';
-import 'package:farfromhome/utils/responsive_screen.dart';
 import 'package:farfromhome/utils/utils.dart';
 import 'package:farfromhome/widgets/widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_range_slider/flutter_range_slider.dart' as frs;
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:intl/intl.dart';
@@ -34,7 +32,6 @@ class CustomSearchState extends State<CustomSearchPage> {
 
   // Value of Featured City starting from -1 : All city | 0 : Ahemdabad | 1 : Mumbai | 2 : Anand | ... in order mentioned in cityList[] in  line 28
   int _selectedIndex = -1;
-  String _locality;
 
   // 0 : Bunglow , 1 : Paying Guest, 2 : Hostel, 3 : Apartment
   var _selectedProperty = [];
@@ -49,7 +46,6 @@ class CustomSearchState extends State<CustomSearchPage> {
   static double _upperValue = 40.0;
 
   //Value of the check box about shared Room false : not checked | true : checked
-  bool _shareRoom = false;
 
   void _search() async {
     var userRef = await LocalStorage.sharedInstance.loadUserRef(Constants.userRef);
@@ -434,7 +430,6 @@ class CustomSearchState extends State<CustomSearchPage> {
               style: TextStyle(fontFamily: 'Exo2'),
               onChanged: (String val) {
                 setState(() {
-                  _locality = val;
                 });
               },
               controller: searchController,

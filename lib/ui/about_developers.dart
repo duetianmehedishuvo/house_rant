@@ -45,7 +45,10 @@ class AboutDevelopers extends StatelessWidget {
             children: <Widget>[
               SizedBox(height: size.getWidthPx(10)),
               getDevCard(context, '', 'Nasrin Khan', '',
-                  'Flutter Developer', 'mailto:knasrin235@gmail.com', 'assets/developers/nasrin.png'),
+                  'Flutter Developer', 'mailto:knasrin235@gmail.com', 'assets/developers/nasrin.jpg'),
+              SizedBox(height: size.getWidthPx(10)),
+              getDevCard(context, '', 'Sumita Khatun', '',
+                  'Flutter Developer', 'mailto:khansumikh@gmail.com', 'assets/developers/sumita.jpg'),
             ],
           ),
         ),

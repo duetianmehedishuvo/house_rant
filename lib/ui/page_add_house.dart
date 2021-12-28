@@ -50,7 +50,6 @@ class AddHouseState extends State<AddHouse> {
 }
 
 List<String> _filters = <String>[];
-List<String> _filter = <String>[];
 final databaseReference = FirebaseFirestore.instance;
 DocumentReference ref;
 DocumentReference addd;

@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 class Screen {
   Size screenSize;
 
-  Screen._internal();
   Screen(this.screenSize);
 
   double wp(percentage) {

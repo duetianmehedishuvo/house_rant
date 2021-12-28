@@ -123,7 +123,7 @@ class _MultiImageState extends State<MultiImage> {
   }
 
   //Uploading images
-  Future<Null> _uploadImages(){
+  Future<Null> _uploadImages() async {
     setState(() {
       len = images.length;
       _uploadStatus=!_uploadStatus;
@@ -161,7 +161,7 @@ class _MultiImageState extends State<MultiImage> {
           _isImageSelected = false;
         });
       }
-    } on Exception catch (e) {
+    } on Exception {
     }
 
     // If the widget was removed from the tree while the asynchronous platform

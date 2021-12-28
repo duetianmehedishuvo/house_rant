@@ -8,7 +8,6 @@ import 'package:http/http.dart' as http;
 class WebServices {
   ApiListener mApiListener;
 
-  final JsonDecoder _decoder = new JsonDecoder();
 
   WebServices(this.mApiListener);
 
