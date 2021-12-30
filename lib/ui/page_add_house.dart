@@ -1479,10 +1479,10 @@ void createRecord(context) async {
   });
   Navigator.pop(context);
   Fluttertoast.showToast(msg: 'House Ad Posted Successfully');
-  _status=true;
-  Navigator.pushReplacement(context,
-      MaterialPageRoute(builder: (context) => SearchPage()));
-
+  _status = true;
+  imageDataPath.clear();
+  imageDataPath=[];
+  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => SearchPage()));
 }
 
 class Choice {
@@ -1531,9 +1531,8 @@ class _MultiImageState extends State<MultiImage> {
   List<String> imagePaths = <String>[];
   String _error = 'No Error Dectected';
 
-
-
   String filePath;
+
 
   Widget buildGridView() {
     return GridView.count(
@@ -1549,7 +1548,6 @@ class _MultiImageState extends State<MultiImage> {
   int i = 0, len;
 
   Future<Null> _addImages(File pic) async {
-
     filePath = '${DateTime.now()}';
     FirebaseStorage storage = FirebaseStorage.instance;
     Reference ref = storage.refFromURL('gs://house-rant.appspot.com/').child(filePath);
@@ -1564,10 +1562,11 @@ class _MultiImageState extends State<MultiImage> {
       imageDataPath.add(url);
       i++;
     });
-    if (len == i + 1) {
+    print(i.toString()+" "+len.toString());
+    if (len <= i ) {
       setState(() {
-        _status = !_status;
-        _uploadStatus = !_uploadStatus;
+        _status = false;
+        _uploadStatus = false;
       });
     }
   }
@@ -1578,6 +1577,7 @@ class _MultiImageState extends State<MultiImage> {
       len = images.length;
       _uploadStatus = !_uploadStatus;
     });
+    print('shuvp ${images.length}');
     images.forEach((pic) {
       _addImages(pic);
     });
@@ -1589,7 +1589,7 @@ class _MultiImageState extends State<MultiImage> {
     final ImagePicker _picker = ImagePicker();
     try {
       final List<XFile> images = await _picker.pickMultiImage();
-      for(var i in images){
+      for (var i in images) {
         setState(() {
           resultList.add(File(i.path));
         });
@@ -1620,7 +1620,16 @@ class _MultiImageState extends State<MultiImage> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    _status=true;
+    _status = true;
+    images.clear();
+    images = [];
+  }
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    images.clear();
+    images = [];
   }
 
   @override
@@ -1631,42 +1640,42 @@ class _MultiImageState extends State<MultiImage> {
         backgroundColor: Colors.blue[700],
         actions: _isImageSelected
             ? <Widget>[
-          // action button
-          _status
-              ? IconButton(
-            icon: Icon(choices[0].icon),
-            onPressed: () {
-              _uploadImages();
-            },
-          )
-              : IconButton(
-            icon: Icon(choices[1].icon),
-            onPressed: () {
-              print('Saved');
-              createRecord(context);
-              //upload code here here
-            },
-          ),
-        ]
+                // action button
+                _status
+                    ? IconButton(
+                        icon: Icon(choices[0].icon),
+                        onPressed: () {
+                          _uploadImages();
+                        },
+                      )
+                    : IconButton(
+                        icon: Icon(choices[1].icon),
+                        onPressed: () {
+                          print('Saved');
+                          createRecord(context);
+                          //upload code here here
+                        },
+                      ),
+              ]
             : null,
       ),
       body: _uploadStatus
           ? Center(child: new CircularProgressIndicator())
           : new Column(
-        children: <Widget>[
-          Expanded(
-            child: buildGridView(),
-          ),
-        ],
-      ),
+              children: <Widget>[
+                Expanded(
+                  child: buildGridView(),
+                ),
+              ],
+            ),
       floatingActionButton: _status
           ? FloatingActionButton(
-        onPressed: () {
-          loadAssets();
-        },
-        child: Icon(Icons.add_a_photo),
-        backgroundColor: Colors.blue[700],
-      )
+              onPressed: () {
+                loadAssets();
+              },
+              child: Icon(Icons.add_a_photo),
+              backgroundColor: Colors.blue[700],
+            )
           : null,
     );
   }
