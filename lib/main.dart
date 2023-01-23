@@ -1,7 +1,6 @@
 import 'package:farfromhome/ui/page_splash.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 
 void main(){
   WidgetsFlutterBinding.ensureInitialized();
@@ -11,9 +10,6 @@ void main(){
 class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    FlutterStatusbarcolor.setStatusBarWhiteForeground(false);
-    FlutterStatusbarcolor.setNavigationBarWhiteForeground(false);
-    FlutterStatusbarcolor.setStatusBarColor(Color(0xfff8f5f0));
 
     return FutureBuilder(
       // Initialize FlutterFire
@@ -35,9 +31,6 @@ class App extends StatelessWidget {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context){
-    FlutterStatusbarcolor.setStatusBarWhiteForeground(false);
-    FlutterStatusbarcolor.setNavigationBarWhiteForeground(false);
-    FlutterStatusbarcolor.setStatusBarColor(Color(0xfff8f5f0));
     return MaterialApp(
       title: 'House Rant',
       theme: ThemeData(

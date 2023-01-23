@@ -5,7 +5,6 @@ import 'package:farfromhome/ui/page_custom_search.dart';
 import 'package:farfromhome/ui/page_house_detail.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:farfromhome/model/models.dart';
 import 'package:farfromhome/utils/utils.dart';
@@ -99,9 +98,6 @@ class _SearchPageState extends State<SearchPage> {
 
   @override
   Widget build(BuildContext context) {
-    FlutterStatusbarcolor.setStatusBarWhiteForeground(true);
-    FlutterStatusbarcolor.setNavigationBarWhiteForeground(true);
-    FlutterStatusbarcolor.setStatusBarColor(Colors.blue[700].withOpacity(0.9));
     size = Screen(MediaQuery.of(context).size);
     return Scaffold(
       backgroundColor: backgroundColor,

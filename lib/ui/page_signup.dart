@@ -4,7 +4,6 @@ import 'package:farfromhome/ui/page_home.dart';
 import 'package:farfromhome/ui/page_login.dart';
 import 'package:farfromhome/utils/utils.dart';
 import 'package:farfromhome/widgets/auth_design.dart';
-import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 import 'package:farfromhome/LocalBindings.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -98,9 +97,6 @@ class _SignUpPageState extends State<SignUpPage> {
   
   @override
   Widget build(BuildContext context) {
-    FlutterStatusbarcolor.setStatusBarWhiteForeground(true);
-    FlutterStatusbarcolor.setNavigationBarWhiteForeground(true);
-    FlutterStatusbarcolor.setStatusBarColor(Colors.blue[700].withOpacity(1));
     size = Screen(MediaQuery.of(context).size);
     return Scaffold(
       backgroundColor: Colors.white,

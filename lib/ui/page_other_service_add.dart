@@ -4,7 +4,6 @@ import 'package:farfromhome/utils/utils.dart';
 import 'package:farfromhome/widgets/auth_design.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 // SIGNUP STARTS HERE
@@ -85,9 +84,6 @@ class _PageOtherServiceAddState extends State<PageOtherServiceAdd> {
 
   @override
   Widget build(BuildContext context) {
-    FlutterStatusbarcolor.setStatusBarWhiteForeground(true);
-    FlutterStatusbarcolor.setNavigationBarWhiteForeground(true);
-    FlutterStatusbarcolor.setStatusBarColor(Colors.blue[700].withOpacity(1));
     size = Screen(MediaQuery.of(context).size);
     return Scaffold(
       backgroundColor: Colors.white,

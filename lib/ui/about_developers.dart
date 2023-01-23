@@ -1,6 +1,5 @@
 import 'package:farfromhome/utils/responsive_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -11,9 +10,6 @@ class AboutDevelopers extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    FlutterStatusbarcolor.setStatusBarWhiteForeground(true);
-    FlutterStatusbarcolor.setNavigationBarWhiteForeground(true);
-    FlutterStatusbarcolor.setStatusBarColor(Colors.blue[700]);
     size = Screen(MediaQuery.of(context).size);
     return new Scaffold(
       appBar: AppBar(

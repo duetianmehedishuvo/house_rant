@@ -3,15 +3,11 @@ import 'package:farfromhome/ui/page_login.dart';
 import 'package:farfromhome/ui/page_signup.dart';
 import 'package:farfromhome/utils/responsive_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 
 class LoginScreen extends StatelessWidget {
   Screen size;
   @override
   Widget build(BuildContext context) {
-    FlutterStatusbarcolor.setStatusBarWhiteForeground(false);
-    FlutterStatusbarcolor.setNavigationBarWhiteForeground(false);
-    FlutterStatusbarcolor.setStatusBarColor(Colors.white);
     size = Screen(MediaQuery.of(context).size);
 
     return Scaffold(

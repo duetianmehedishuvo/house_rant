@@ -3,7 +3,6 @@ import 'package:farfromhome/ui/page_payment.dart';
 import 'package:farfromhome/ui/page_profile.dart';
 import 'package:flutter/material.dart';
 import 'package:farfromhome/utils/responsive_screen.dart';
-import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -46,9 +45,6 @@ class _UsersState extends State<Users> {
 
   @override
   Widget build(BuildContext context) {
-    FlutterStatusbarcolor.setStatusBarWhiteForeground(true);
-    FlutterStatusbarcolor.setNavigationBarWhiteForeground(true);
-    FlutterStatusbarcolor.setStatusBarColor(Colors.blue[700]);
     size = Screen(MediaQuery.of(context).size);
     return Scaffold(
       key: _scaffoldKey,

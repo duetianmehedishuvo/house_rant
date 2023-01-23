@@ -4,7 +4,6 @@ import 'package:farfromhome/utils/Constants.dart';
 import 'package:farfromhome/utils/responsive_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_search_bar/flutter_search_bar.dart';
-import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 
 class PageOtherServices extends StatefulWidget {
   @override
@@ -49,9 +48,6 @@ class _PageOtherServicesState extends State<PageOtherServices> {
 
   @override
   Widget build(BuildContext context) {
-    FlutterStatusbarcolor.setStatusBarWhiteForeground(true);
-    FlutterStatusbarcolor.setNavigationBarWhiteForeground(true);
-    FlutterStatusbarcolor.setStatusBarColor(Colors.blue[700]);
     size = Screen(MediaQuery.of(context).size);
     return Scaffold(
         key: _scaffoldKey,

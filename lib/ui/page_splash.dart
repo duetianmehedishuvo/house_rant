@@ -2,7 +2,6 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:farfromhome/ui/first_screen.dart';
 import 'package:farfromhome/utils/utils.dart';
-import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 import 'package:responsive_container/responsive_container.dart';
 import '../LocalBindings.dart';
 import 'page_home.dart';
@@ -25,9 +24,6 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {    
-    FlutterStatusbarcolor.setStatusBarWhiteForeground(false);
-    FlutterStatusbarcolor.setNavigationBarWhiteForeground(false);
-    FlutterStatusbarcolor.setStatusBarColor(Color(0xfff8f5f0));
     size = Screen(MediaQuery.of(context).size);
     return Scaffold(
       body: ResponsiveContainer(
